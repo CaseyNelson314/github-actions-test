@@ -36,4 +36,5 @@ jobs:
           fqbn: ${{ matrix.board.fqbn }}
           platforms: ${{ matrix.board.platforms }}
           sketch-paths: ./test
-          libraries: https://github.com/CaseyNelson314/github-actions-test.git
+          libraries:
+            --git-url: https://github.com/CaseyNelson314/github-actions-test.git
