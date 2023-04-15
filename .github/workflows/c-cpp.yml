@@ -1,12 +1,17 @@
 name: Test
 
-on:
-  - push
-  - pull_request
+# Here we tell GitHub to run the workflow when a commit
+# is pushed or a Pull Request is opened.
+on: [push, pull_request]
+
+# This is the list of jobs that will be run concurrently.
+# Since we use a build matrix, the actual number of jobs
+# started depends on how many configurations the matrix
+# will produce.
 jobs:
-
+  # This workflow contains a single job called "build"
   build:
-
+    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
     strategy:
@@ -18,7 +23,12 @@ jobs:
                 source-url: https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
           - fqbn: arduino:avr:nano
 
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      # Compiles sketches
       - uses: arduino/compile-sketches@v1
         with:
           fqbn: ${{ matrix.board.fqbn }}
