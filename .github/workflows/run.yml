@@ -13,10 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Build
-        uses: actions/checkout@v2
-        run: |
-          g++ -o out ./src/main.cpp
-          ./out
-
+      - uses: actions/checkout@v3
+      - name: build
+        run: gcc -o main main.cpp
+            ./main
