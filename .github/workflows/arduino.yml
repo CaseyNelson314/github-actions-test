@@ -37,7 +37,7 @@ jobs:
           platforms: ${{ matrix.board.platforms }}
           # source-path: ./
           sketch-paths: ./test
-          libraries:
+          libraries: |
             - name: TestLibrary
               source-path: ./
 
