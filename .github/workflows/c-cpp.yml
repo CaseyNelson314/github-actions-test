@@ -25,7 +25,7 @@ jobs:
       matrix:
         board:
           - fqbn: arduino:avr:uno
-          - fqbn: arduino:sam:arduino_due_x_dbg
+          - fqbn: arduino:sam:nano
           - fqbn: esp32:esp32:esp32
             platforms: |
               - name: esp32:esp32
