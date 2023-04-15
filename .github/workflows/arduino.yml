@@ -2,9 +2,9 @@ name: ArduinoBuild
 
 on:
   push:
-    branches:
+    branches: |
       - master
-  pull_request:
+  pull_request: |
       - master
 
 jobs:
