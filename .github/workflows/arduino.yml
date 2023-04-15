@@ -36,6 +36,6 @@ jobs:
           fqbn: ${{ matrix.board.fqbn }}
           platforms: ${{ matrix.board.platforms }}
           sketch-paths: ./test
-          libraries:
+          libraries: |
             - name: FastLED
               source-path: https://github.com/FastLED/FastLED.git
