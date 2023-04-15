@@ -20,11 +20,13 @@ jobs:
           - fqbn: arduino:avr:nano
 
     steps:
+
       - uses: actions/checkout@v2
+
       - name: compile sketch
         uses: arduino/compile-sketches@v1
         with:
           fqbn: ${{ matrix.board.fqbn }}
           platforms: ${{ matrix.board.platforms }}
-          sketch-paths: - ./test
+          sketch-paths: ./test
           libraries: '-'
