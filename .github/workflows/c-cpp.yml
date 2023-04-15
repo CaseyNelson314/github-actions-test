@@ -17,9 +17,7 @@ jobs:
     strategy:
       matrix:
         board:
-          - fqbn: arduino:avr:uno
-          - fqbn: arduino:sam:arduino_due_x_dbg
-          - fqbn: esp32:esp32:esp32
+          - fqbn: rp2040:rp2040
             platforms: |
               - name: esp32:esp32
                 source-url: https://raw.githubusercontent.com/espressif/arduino-esp32/gh-pages/package_esp32_index.json
@@ -37,6 +35,7 @@ jobs:
           sketch-paths: |
             - ./
           libraries: '-'
+
 # jobs:
 #   # This is the name of the job - can be whatever.
 #   test-matrix:
