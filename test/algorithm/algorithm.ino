@@ -3,6 +3,8 @@
 #include <FlexCAN_T4.h>
 #endif
 
+#include <LibraryTest.hpp>
+
 void setup()
 {
 
