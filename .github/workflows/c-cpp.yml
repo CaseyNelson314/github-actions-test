@@ -13,8 +13,8 @@ jobs:
 
     steps:
 
-    - uses: arduino/setup-arduino-cli@v1
-    - name: Install Arduino CLI
+    - name: Compile Arduino Sketches
+      uses: arduino/compile-sketches@v1.1.0
 
     - uses: actions/checkout@v3
     - name: build
