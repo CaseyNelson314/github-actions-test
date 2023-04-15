@@ -5,6 +5,7 @@
 
 #include <LibraryTest.hpp>
 #include <FastLED.h>
+#include <Servo.h>
 
 void setup()
 {
