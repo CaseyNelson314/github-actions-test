@@ -1,3 +1,3 @@
 # github-actions-test
 
-[![Arduino](https://github.com/CaseyNelson314/github-actions-test/actions/workflows/arduino.yml/badge.svg)](https://github.com/CaseyNelson314/github-actions-test/actions/workflows/arduino.yml)
+[![Sketch Build](https://github.com/CaseyNelson314/github-actions-test/actions/workflows/sketch_build.yml/badge.svg)](https://github.com/CaseyNelson314/github-actions-test/actions/workflows/sketch_build.yml)
