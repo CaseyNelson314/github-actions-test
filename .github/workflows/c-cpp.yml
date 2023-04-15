@@ -17,6 +17,6 @@ jobs:
       uses: arduino/compile-sketches@v1.1.0
 
     - uses: actions/checkout@v3
-    - name: build
+      name: build
       run: g++ -o main src/main.cpp
            ./main
