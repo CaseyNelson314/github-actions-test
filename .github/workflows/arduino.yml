@@ -35,9 +35,8 @@ jobs:
         with:
           fqbn: ${{ matrix.board.fqbn }}
           platforms: ${{ matrix.board.platforms }}
-          sketch-paths: ./test
+          sketch-paths: |
+            - ./test
           libraries: |
-            - name: TestLibrary
-              source-path: ./
-            - name: FastLED
-              source-path: https://github.com/FastLED/FastLED.git
+            - source-path: ./
+            - source-path: https://github.com/FastLED/FastLED.git
