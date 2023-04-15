@@ -11,6 +11,9 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    - name: Install Arduino CLI
+      uses: arduino/setup-arduino-cli@v1
+
     steps:
     - uses: actions/checkout@v3
     - name: build
