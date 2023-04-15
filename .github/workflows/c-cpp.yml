@@ -2,9 +2,7 @@ name: Test
 
 # Here we tell GitHub to run the workflow when a commit
 # is pushed or a Pull Request is opened.
-on:
-  - push
-  - pull_request
+on: [push, pull_request]
 
 # This is the list of jobs that will be run concurrently.
 # Since we use a build matrix, the actual number of jobs
@@ -12,12 +10,16 @@ on:
 # will produce.
 jobs:
   # This is the name of the job - can be whatever.
-  matrix:
+  test-matrix:
+
+    # Here we tell GitHub that the jobs must be determined
+    # dynamically depending on a matrix configuration.
     strategy:
+      matrix:
         # The matrix will produce one job for each configuration
         # parameter of type `arduino-platform`, in this case a
         # total of 2.
-        # arduino-platform: ["arduino:avr"]
+        arduino-platform: ["arduino:avr"]
         # This is usually optional but we need to statically define the
         # FQBN of the boards we want to test for each platform. In the
         # future the CLI might automatically detect and download the core
@@ -27,8 +29,7 @@ jobs:
           # This works like this: when the platform is "arduino:samd", the
           # variable `fqbn` is set to "arduino:samd:nano_33_iot".
           - arduino-platform: "arduino:avr"
-            - fqbn: "arduino:avr:teensy41"
-            - fqbn: "arduino:avr:unowifi"
+            fqbn: "arduino:avr:teenst41"
 
     # This is the platform GitHub will use to run our workflow, we
     # pick Windows for no particular reason.
@@ -55,4 +56,4 @@ jobs:
       # Finally, we compile the sketch, using the FQBN that was set
       # in the build matrix.
       - name: Compile Sketch
-        run: arduino-cli compile --fqbn ${{ matrix.fqbn }} .
+        run: arduino-cli compile --fqbn ${{ matrix.fqbn }} ./src
