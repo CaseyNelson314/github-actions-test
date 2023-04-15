@@ -4,6 +4,7 @@
 #endif
 
 #include <LibraryTest.hpp>
+#include <FastLED.h>
 
 void setup()
 {

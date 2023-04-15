@@ -1,4 +1,4 @@
-name: Arduino
+name: ArduinoBuild
 
 on:
   - push
@@ -35,7 +35,6 @@ jobs:
         with:
           fqbn: ${{ matrix.board.fqbn }}
           platforms: ${{ matrix.board.platforms }}
-          # source-path: ./
           sketch-paths: ./test
           libraries: |
             - name: TestLibrary
