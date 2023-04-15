@@ -13,6 +13,7 @@ jobs:
     strategy:
       matrix:
         board:
+          - fqbn: teensy:avr:teensy40
           - fqbn: rp2040:rp2040:rpipico
             platforms: |
               - name: rp2040:rp2040
