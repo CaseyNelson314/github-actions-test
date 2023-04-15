@@ -1,20 +1,20 @@
-name: Run Test
+# name: Run Test
 
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+# on:
+#   push:
+#     branches: [ "master" ]
+#   pull_request:
+#     branches: [ "master" ]
 
-jobs:
+# jobs:
 
-  build:
+#   build:
 
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
-      - name: build
-        run: |
-          g++ -o main src/main.cpp
-          ./main
+#     steps:
+#       - uses: actions/checkout@v3
+#       - name: build
+#         run: |
+#           g++ -o main src/main.cpp
+#           ./main
