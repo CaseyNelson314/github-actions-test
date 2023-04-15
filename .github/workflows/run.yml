@@ -15,5 +15,6 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: build
-        run: gcc -o main main.cpp
-            ./main
+        run: |
+          gcc -o main src/main.cpp
+          ./main
