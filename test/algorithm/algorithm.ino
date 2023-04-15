@@ -5,7 +5,10 @@
 
 #include <LibraryTest.hpp>
 #include <FastLED.h>
+
 #include <Servo.h>
+#include <Wire.h>
+#include <SPI.h>
 
 void setup()
 {
