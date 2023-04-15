@@ -48,6 +48,6 @@ jobs:
 
           # 依存するライブラリ
           libraries: |
-            - name: Servo
+            # - name: Servo
             - source-path: ./
             - source-url: https://github.com/FastLED/FastLED.git
