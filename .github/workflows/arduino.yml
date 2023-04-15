@@ -1,4 +1,4 @@
-name: Compile Arduino
+name: Arduino
 
 on:
   - push
@@ -6,22 +6,25 @@ on:
 
 jobs:
 
-  build:
+  compile:
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
         board:
+
+          - fqbn: arduino:avr:nano
+
           - fqbn: teensy:avr:teensy40
             platforms: |
               - name: teensy:avr
                 source-url: https://www.pjrc.com/teensy/td_156/package_teensy_index.json
+
           - fqbn: rp2040:rp2040:rpipico
             platforms: |
               - name: rp2040:rp2040
                 source-url: https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
-          - fqbn: arduino:avr:nano
 
     steps:
 
