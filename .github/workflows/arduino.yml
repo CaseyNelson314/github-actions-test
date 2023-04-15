@@ -1,8 +1,11 @@
 name: ArduinoBuild
 
 on:
-  - push
-  - pull_request
+  push:
+    branches:
+      - master
+  pull_request:
+      - master
 
 jobs:
 
@@ -12,6 +15,8 @@ jobs:
 
     strategy:
       matrix:
+
+        # ボード
         board:
 
           - fqbn: arduino:avr:nano
@@ -35,8 +40,12 @@ jobs:
         with:
           fqbn: ${{ matrix.board.fqbn }}
           platforms: ${{ matrix.board.platforms }}
+
+          # テスト用スケッチがあるディレクトリ(再帰的)
           sketch-paths: |
             - ./test
+
+          # 依存するライブラリ
           libraries: |
             - source-path: ./
             - source-url: https://github.com/FastLED/FastLED.git
