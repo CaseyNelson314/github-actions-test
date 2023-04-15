@@ -9,15 +9,15 @@ on:
 jobs:
 
   build:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-      - name: build
+      - name: Install google test
         run: |
+          cd Test/GoogleTest/
           git clone https://github.com/google/googletest.git
-          cd googletest
-          mkdir build
-          cd build
-          cmake ..
+
+      - name: Test
+        run: |
+          cmake
+
