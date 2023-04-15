@@ -1,4 +1,4 @@
-name: ArduinoBuild
+name: Sketch Build
 
 on:
   push:
@@ -47,4 +47,4 @@ jobs:
           # 依存するライブラリ
           libraries: |
             - source-path: ./
-            - source-url: https://github.com/FastLED/FastLED.git
+            - source-url: https://github.com/udonrobo/UdonLibrary.git
