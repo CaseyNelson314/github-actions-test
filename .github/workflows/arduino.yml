@@ -14,6 +14,9 @@ jobs:
       matrix:
         board:
           - fqbn: teensy:avr:teensy40
+            platforms: /
+              - name: teensy:avr
+                source-url: https://www.pjrc.com/teensy/td_156/package_teensy_index.json
           - fqbn: rp2040:rp2040:rpipico
             platforms: |
               - name: rp2040:rp2040
