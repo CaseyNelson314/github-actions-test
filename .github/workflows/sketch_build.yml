@@ -45,7 +45,7 @@ jobs:
 
           # テスト用スケッチがあるディレクトリ(再帰的)
           sketch-paths: |
-            - **/test/**
+            - ./test/**
 
           # 依存するライブラリ
           libraries: |
