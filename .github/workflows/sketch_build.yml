@@ -18,7 +18,7 @@ jobs:
       matrix:
         include:
           - core: arduino:avr
-            board: arduino:avr:nano
+            # board: arduino:avr:nano
           # - core: teensy:avr
           #   board: teensy:avr:teensy40
           #   source-url: https://www.pjrc.com/teensy/td_156/package_teensy_index.json
