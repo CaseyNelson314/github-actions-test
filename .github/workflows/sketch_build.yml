@@ -34,7 +34,8 @@ jobs:
 
     steps:
 
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v3
 
       - name: Compile sketch
         uses: arduino/compile-sketches@v1
@@ -44,9 +45,12 @@ jobs:
 
           # テスト用スケッチがあるディレクトリ(再帰的)
           sketch-paths: |
-            - ./test
+            - **/test/**
 
           # 依存するライブラリ
           libraries: |
             - source-path: ./
             - source-url: https://github.com/FastLED/FastLED.git
+
+          enable-deltas-report: 'true'
+          verbose: 'true'
