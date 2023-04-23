@@ -44,7 +44,7 @@ jobs:
       - name: Install libraries
         run: arduino-cli lib install SD Ethernet
       - name: Build test
-        run: arduino-cli compile --library . --warnings all -b ${{ matrix.board }} "test\algorithm\algorithm.ino"
+        run: arduino-cli compile --library . --warnings all -b ${{ matrix.board }} "test/algorithm/algorithm.ino"
 
   # compile:
 
