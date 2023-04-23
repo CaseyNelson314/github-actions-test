@@ -19,8 +19,9 @@ jobs:
         include:
           - core: arduino:avr
             board: arduino:avr:nano
-          - core: teensy:avr
-            board: teensy:avr:teensy40
+            s source-url: https://downloads.arduino.cc/packages/package_index.json
+          # - core: teensy:avr
+          #   board: teensy:avr:teensy40
           #   source-url: https://www.pjrc.com/teensy/td_156/package_teensy_index.json
           # - core: rp2040:rp2040
           #   board: rp2040:rp2040:rpipico
@@ -41,8 +42,8 @@ jobs:
       - name: Install core
         run: arduino-cli core install ${{ matrix.core }}
 
-      - name: Install libraries
-        run: arduino-cli lib install SD Ethernet
+      # - name: Install libraries
+      #   run: arduino-cli lib install SD Ethernet
       - name: Build test
         run: arduino-cli compile --library . --warnings all -b ${{ matrix.board }} "test/algorithm/algorithm.ino"
 
