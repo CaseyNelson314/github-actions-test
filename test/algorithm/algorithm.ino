@@ -3,7 +3,6 @@
 #include <FlexCAN_T4.h>
 #endif
 
-#include <LibraryTest.hpp>
 #include <FastLED.h>
 
 #include <Wire.h>
