@@ -9,6 +9,8 @@
 #include <Wire.h>
 #include <SPI.h>
 
+#include <test.hpp>
+
 void setup()
 {
 	f();
