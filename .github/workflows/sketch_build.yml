@@ -10,47 +10,74 @@ on:
 
 jobs:
 
-  compile:
-
-    runs-on: ubuntu-latest
-
+  arduino:
+    name: Arduino
+    needs: gcc
     strategy:
+      fail-fast: false
       matrix:
+        include:
+          - core: arduino:avr
+            board: arduino:avr:nano
+          - core: teensy:avr
+            board: teensy:avr:teensy40
+            source-url: https://www.pjrc.com/teensy/td_156/package_teensy_index.json
+          - core: rp2040:rp2040
+            board: rp2040:rp2040:rpipico
+            source-url: https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
 
-        # ボード
-        board:
-
-          - fqbn: arduino:avr:nano
-
-          - fqbn: teensy:avr:teensy40
-            platforms: |
-              - name: teensy:avr
-                source-url: https://www.pjrc.com/teensy/td_156/package_teensy_index.json
-
-          - fqbn: rp2040:rp2040:rpipico
-            platforms: |
-              - name: rp2040:rp2040
-                source-url: https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
-
+    runs-on: ubuntu-20.04
     steps:
-
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Install arduino-cli
+        run: curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh | BINDIR=/usr/local/bin sh
+      - name: Install core
+        run: arduino-cli core install ${{ matrix.core }}
+      - name: Install libraries
+        run: arduino-cli lib install SD Ethernet
+      # - name: Build JsonConfigFile
+      #   run: arduino-cli compile --library . --warnings all -b ${{ matrix.board }} "examples/JsonConfigFile/JsonConfigFile.ino"
 
-      - name: Compile sketch
-        uses: arduino/compile-sketches@v1
-        with:
-          fqbn: ${{ matrix.board.fqbn }}
-          platforms: ${{ matrix.board.platforms }}
+  # compile:
 
-          # テスト用スケッチがあるディレクトリ(再帰的)
-          sketch-paths: |
-            - ./test
+  #   runs-on: ubuntu-latest
 
-          # 依存するライブラリ
-          libraries: |
-            - source-path: ./
-            - source-url: https://github.com/FastLED/FastLED.git
+  #   strategy:
+  #     matrix:
 
-          enable-deltas-report: 'true'
-          verbose: 'true'
+  #       # ボード
+  #       board:
+
+  #         - fqbn: arduino:avr:nano
+
+  #         - fqbn: teensy:avr:teensy40
+  #           platforms: |
+  #             - name: teensy:avr
+  #               source-url: https://www.pjrc.com/teensy/td_156/package_teensy_index.json
+
+  #         - fqbn: rp2040:rp2040:rpipico
+  #           platforms: |
+  #             - name: rp2040:rp2040
+  #               source-url: https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+
+  #   steps:
+
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+
+  #     - name: Compile sketch
+  #       uses: arduino/compile-sketches@v1
+  #       with:
+  #         fqbn: ${{ matrix.board.fqbn }}
+  #         platforms: ${{ matrix.board.platforms }}
+
+  #         # テスト用スケッチがあるディレクトリ(再帰的)
+  #         sketch-paths: |
+  #           - ./test
+
+  #         # 依存するライブラリ
+  #         libraries: |
+  #           - source-path: ./
+  #           - source-url: https://github.com/FastLED/FastLED.git
+
