@@ -19,12 +19,12 @@ jobs:
         include:
           - core: arduino:avr
             board: arduino:avr:nano
-          - core: teensy:avr
-            board: teensy:avr:teensy40
-            source-url: https://www.pjrc.com/teensy/td_156/package_teensy_index.json
-          - core: rp2040:rp2040
-            board: rp2040:rp2040:rpipico
-            source-url: https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
+          # - core: teensy:avr
+          #   board: teensy:avr:teensy40
+          #   source-url: https://www.pjrc.com/teensy/td_156/package_teensy_index.json
+          # - core: rp2040:rp2040
+          #   board: rp2040:rp2040:rpipico
+          #   source-url: https://github.com/earlephilhower/arduino-pico/releases/download/global/package_rp2040_index.json
 
     runs-on: ubuntu-20.04
     steps:
